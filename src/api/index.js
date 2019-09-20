@@ -2,6 +2,7 @@
 // Cloud9 users: This will be your IP address found under the 'Share' link
 const BASE = 'http://localhost:3000'
 
+
 let getCharacters = function() {
 // the function name getCharacters is intended to remind you of the restful rails route --> GET '/characters'.
 	return fetch(BASE + '/newcharacters') // this would be equivalent to going to localhost:3000/cats in your browser. Do that - - what do you see?
@@ -35,4 +36,23 @@ let createCharacter = function(character) {
 
 export  {
 	createCharacter
+}
+
+let deleteCharacter = function(character) {
+	return fetch(BASE + `/newcharacters/${character}`, {
+		body: JSON.stringify(character),
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		method: "DELETE"
+	})
+	.then((resp) => {
+		let json = resp.json()
+
+		return json
+	})
+}
+
+export {
+	deleteCharacter
 }

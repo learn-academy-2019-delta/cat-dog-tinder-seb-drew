@@ -3,7 +3,8 @@ body {
   font-family:'Press Start 2P', cursive;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: orange;
+  background-color: #aefcae;
+
 }
 
 
@@ -11,28 +12,47 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+    display: flex;
+    justify-content: center;
 }
 
-.specialcontainer {
-    max-width: 50%;
+Form {
+display: flex;
+justify-content: center;
+width: auto;
+
 }
 
 h2 {
-    color: green
+    color: green;
+    display: flex;
+    justify-content: center;
 }
 
 .character-name {
-    color: blue
+    color: blue;
+    display: flex;
+    justify-content: center;
 }
 
 .character-age {
-    color: red
+    color: red;
+    display: flex;
+    justify-content: center;
 }
 
 .character-world {
-    color: green
+    color: green;
+    display: flex;
+    justify-content: center;
 }
 
 .character-enjoys {
-    color: grey
+    color: grey;
+    display: flex;
+    justify-content: center;
+}
+
+h4 {
+    color: #bf910f;
 }

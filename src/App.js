@@ -4,6 +4,7 @@ import './App.css'
 import Header from './components/Header'
 import { getCharacters } from './api'
 import { createCharacter } from './api'
+import { deleteCharacter } from './api'
 
 import Characters from './pages/Characters'
 import NewCharacter from './pages/NewCharacter'
@@ -44,7 +45,7 @@ handleNewCharacter = (newCharacterInfo) => {
   }
 
   handleDeletedCharacter = (deletedCharacter) => {
-      createCharacter(deletedCharacter)
+      deleteCharacter(deletedCharacter)
       .then(deleteCharacter => {
           this.setState({
               deleteCharacter: true
@@ -65,7 +66,9 @@ handleNewCharacter = (newCharacterInfo) => {
           <Header />
             <Router>
                 <Switch>
-                    <Route exact path="/newcharacters" render={( props ) => <Characters characters={this.state.characters}/> } />
+                    <Route exact path="/newcharacters" render={( props ) => <Characters
+                        deletedCharacter={this.handleDeletedCharacter}
+                        characters={this.state.characters}/> } />
                     <Route exact path="/" render={( props ) =>
                         <NewCharacter success={this.state.successCharacter} submittedCharacter={this.handleNewCharacter}/> } />
                 </Switch>

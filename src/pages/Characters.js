@@ -24,8 +24,9 @@ handleChange = (event) => {
   this.setState({form: form})
 }
 
-handleDelete = () => {
-    this.props.deletedCharacter(this.state.form)
+handleDelete = (character) => {
+    console.log(character)
+    this.props.deletedCharacter(character.id)
 }
 
   render() {
@@ -54,7 +55,7 @@ handleDelete = () => {
                     <h4>
                     <span className='character-enjoys'>Enjoys: {character.enjoys}</span>
                     </h4>
-                        <button className ="nes-btn is-error" type="submit" value="Submit" onClick={this.handleDelete}>DELETE ACCOUNT</button>
+                        <button className ="nes-btn is-error" type="submit" value="Submit" onClick={() => this.handleDelete(character)}>DELETE ACCOUNT</button>
                     <br />
                 </ListGroup.Item>
               )
@@ -62,12 +63,10 @@ handleDelete = () => {
                 </ListGroup>
             </Col>
         </Row>
-        <div>
+        <div id="homebutton">
         {this.state.redirect && <Redirect to='/' />}
 
         <button type="button" className="nes-btn is-warning" onClick={this.setRedirect}>HOME</button>
-        </div>
-        <div>
         </div>
       </Container>
     );
